@@ -11,7 +11,7 @@ from aiogram.utils.keyboard import ReplyKeyboardMarkup, KeyboardButton
 from gradio_client import Client
 from gradio_client.utils import handle_file
 
-TG_TOKEN = "8190505748:AAF-HDRJUsto_ffELp_EXP5a-yjU-cI5PD4"
+TG_TOKEN = ""
 
 bot = Bot(TG_TOKEN)
 dp = Dispatcher()
