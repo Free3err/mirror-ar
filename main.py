@@ -11,7 +11,7 @@ from aiogram.utils.keyboard import ReplyKeyboardMarkup, KeyboardButton
 from gradio_client import Client
 from gradio_client.utils import handle_file
 
-TG_TOKEN = "8190505748:AAFzXSPbzCpMLpkgWbY39419zra019RCbh0"
+TG_TOKEN = "8190505748:AAF-HDRJUsto_ffELp_EXP5a-yjU-cI5PD4"
 
 bot = Bot(TG_TOKEN)
 dp = Dispatcher()
@@ -28,7 +28,6 @@ category_kb = ReplyKeyboardMarkup(
     keyboard=[
         [KeyboardButton(text="Верх")],
         [KeyboardButton(text="Низ")],
-        [KeyboardButton(text="Платье")]
     ],
     resize_keyboard=True
 )
@@ -56,7 +55,7 @@ async def init_tryon(m: Message):
     )
 
 
-@dp.message(F.text.in_(["Верх", "Низ", "Платье"]))
+@dp.message(F.text.in_(["Верх", "Низ"]))
 async def set_category(m: Message):
     uid = m.from_user.id
     if uid not in user_data or user_data[uid]["state"] != "category":
@@ -66,7 +65,6 @@ async def set_category(m: Message):
     category_map = {
         "Верх": "upper_body",
         "Низ": "lower_body",
-        "Платье": "dresses"
     }
 
     user_data[uid]["category"] = category_map[m.text]
